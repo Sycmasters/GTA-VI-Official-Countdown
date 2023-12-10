@@ -1,187 +1,100 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Timer with GIF</title>
-  <style>
-    @font-face {
-      font-family: 'Acherus Grotesque';
-      src: url('AcherusGrotesque-ExtraBold.woff') format('woff');
-      font-weight: 800; /* Extra Bold */
-      font-style: normal;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer with GIF</title>
+<style>
+  @font-face {
+    font-family: 'Acherus Grotesque';
+    src: url('AcherusGrotesque-ExtraBold.woff') format('woff');
+    font-weight: 800; /* Extra Bold */
+    font-style: normal;
+  }
 
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: 'Acherus Grotesque', Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
-      background-size: cover;
-    }
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Acherus Grotesque', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
+    background-size: cover;
+  }
 
-    .countdown-container {
-      text-align: center;
-      color: #fff;
-      font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is */
-      background: none; /* Removed semi-transparent background */
-      padding: 10px;
-      margin-bottom: 20px; /* Add some space at the bottom */
-    }
+  .countdown-container {
+    text-align: center;
+    color: #fff;
+    font-size: 3vw; /* Font size relative to the width of the viewport */
+    margin-top: -80vh; /* Keep the countdown where it is */
+    background: none; /* Removed semi-transparent background */
+    padding: 10px;
+    margin-bottom: 20px; /* Add some space at the bottom */
+  }
 
-    .countdown {
-      font-family: 'Acherus Grotesque', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+  .countdown {
+    font-family: 'Acherus Grotesque', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-    /* Style for the GIF */
-    .gif-container {
-      position: absolute; /* Absolute positioning */
-      top: 92vh; /* Place the GIF at 85vh from the top */
-      left: 50%; /* Center the GIF horizontally */
-      transform: translate(-50%, -50%); /* Adjust for exact centering */
-      max-width: 600px; /* Max width to make the GIF responsive */
-      height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Button styles */
-    .button-container {
-      position: absolute; /* Absolute positioning */
-      top: 20px; /* Distance from the top */
-      right: 20px; /* Distance from the right */
-      display: flex; /* Arrange buttons horizontally */
-      flex-direction: column; /* Stack buttons vertically */
-      align-items: flex-end; /* Align buttons to the end (right) */
-    }
-
-    .button {
-      background-color: #ff69b4; /* Vibrant pink for the button */
-      color: white;
-      padding: 10px;
-      border-radius: 50%; /* Fully round buttons */
-      border: none;
-      cursor: pointer;
-      opacity: 0; /* Buttons are invisible by default */
-      transition: background-color 0.3s, opacity 0.3s; /* Smooth transition for hover effect */
-      margin-bottom: 10px; /* Space between buttons */
-    }
-
-    .button:hover {
-      background-color: #ff1493; /* Darker shade of pink for hover effect */
-      opacity: 1; /* Button visible on hover */
-    }
-  </style>
+  /* Style for the GIF */
+  .gif-container {
+    position: absolute; /* Absolute positioning */
+    top: 92vh; /* Place the GIF at 85vh from the top */
+    left: 50%; /* Center the GIF horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    max-width: 600px; /* Max width to make the GIF responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+</style>
 </head>
 <body>
 
-  <!-- GIF container -->
-  <div class="gif-container">
-    <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
+<!-- GIF container -->
+<div class="gif-container">
+  <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
+</div>
+
+<!-- Countdown container -->
+<div class="countdown-container">
+  <div id="countdown" class="countdown">
+    00d 00h 00m 00s
   </div>
+</div>
 
-  <!-- Countdown container -->
-  <div class="countdown-container">
-    <div id="countdown" class="countdown">
-      00d 00h 00m 00s
-    </div>
-  </div>
+<!-- Countdown Timer Script -->
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
 
-  <!-- Button container -->
-  <div class="button-container">
-    <a href="trailer.html" class="button">Trailer</a>
-    <a href="news.html" class="button">News</a>
-    <a href="gallery.html" class="button">Gallery</a>
-  </div>
+// Update the countdown every 1 second
+var countdownFunction = setInterval(function() {
+  // Get today's date and time
+  var now = new Date().getTime();
 
-  <!-- Countdown Timer Script -->
-  <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
+  // Find the time remaining until the countdown date
+  var timeRemaining = countDownDate - now;
 
-    // Update the countdown every 1 second
-    var countdownFunction = setInterval(function() {
-      // Get today's date and time
-      var now = new Date().getTime();
+  // Time calculations for days, hours, minutes, and seconds
+  var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-      // Find the time remaining until the countdown date
-      var timeRemaining = countDownDate - now;
+  // Output the result in the element with id="countdown"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
 
-      // Time calculations for days, hours, minutes, and seconds
-      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      // Output the result in the element with id="countdown"
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      // If the countdown is finished, write some text
-      if (timeRemaining < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-  </script>
-
-</body>
-</html>
-
-  <!-- GIF container -->
-  <div class="gif-container">
-    <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
-  </div>
-
-  <!-- Countdown container -->
-  <div class="countdown-container">
-    <div id="countdown" class="countdown">
-      00d 00h 00m 00s
-    </div>
-  </div>
-
-  <!-- Button container -->
-  <div class="button-container">
-    <a href="trailer.html" class="button">Trailer</a>
-    <a href="news.html" class="button">News</a>
-    <a href="gallery.html" class="button">Gallery</a>
-  </div>
-
-  <!-- Countdown Timer Script -->
-  <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
-
-    // Update the countdown every 1 second
-    var countdownFunction = setInterval(function() {
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the time remaining until the countdown date
-      var timeRemaining = countDownDate - now;
-
-      // Time calculations for days, hours, minutes, and seconds
-      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      // Output the result in the element with id="countdown"
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      // If the countdown is finished, write some text
-      if (timeRemaining < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-  </script>
+  // If the countdown is finished, write some text
+  if (timeRemaining < 0) {
+    clearInterval(countdownFunction);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
