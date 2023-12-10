@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Countdown Timer with Video</title>
+<title>Countdown Timer with GIF</title>
 <style>
   @font-face {
     font-family: 'Acherus Grotesque';
@@ -40,34 +40,38 @@
     padding: 0;
   }
 
-  video {
+  /* Style for the GIF */
+  .gif-container {
     position: absolute; /* Absolute positioning */
-    top: 85vh; /* Place the video where the timer used to be */
-    max-width: 90%; /* Max width to make the video responsive */
+    top: 85vh; /* Place the GIF at 85vh from the top */
+    left: 50%; /* Center the GIF horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    max-width: 600px; /* Max width to make the GIF responsive */
     height: auto; /* Maintain aspect ratio */
   }
 </style>
 </head>
 <body>
 
-<video autoplay loop muted>
-  <source src="Screen_Recording_20231210_00132_YouTube.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<!-- GIF container -->
+<div class="gif-container">
+  <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-92495d80a4.gif" alt="Animated Logo">
+</div>
 
+<!-- Countdown container -->
 <div class="countdown-container">
   <div id="countdown" class="countdown">
     00d 00h 00m 00s
   </div>
 </div>
 
+<!-- Countdown Timer Script -->
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
 
 // Update the countdown every 1 second
 var countdownFunction = setInterval(function() {
-
   // Get today's date and time
   var now = new Date().getTime();
 
