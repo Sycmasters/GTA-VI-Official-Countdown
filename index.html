@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Countdown Timer</title>
+<title>Countdown Timer with Video</title>
 <style>
   @font-face {
     font-family: 'Acherus Grotesque';
@@ -17,8 +17,8 @@
     margin: 0;
     font-family: 'Acherus Grotesque', Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Align items vertically */
-    justify-content: center; /* Center items vertically */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
     background-size: cover;
@@ -28,7 +28,7 @@
     text-align: center;
     color: #fff;
     font-size: 3vw; /* Font size relative to the width of the viewport */
-    margin-top: -80vh; /* Increased margin-top to push the countdown further down */
+    margin-top: -80vh; /* Keep the countdown where it is */
     background: none; /* Removed semi-transparent background */
     padding: 10px;
     margin-bottom: 20px; /* Add some space at the bottom */
@@ -39,9 +39,21 @@
     margin: 0;
     padding: 0;
   }
+
+  video {
+    position: absolute; /* Absolute positioning */
+    top: 85vh; /* Place the video where the timer used to be */
+    max-width: 90%; /* Max width to make the video responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
 </style>
 </head>
 <body>
+
+<video autoplay loop muted>
+  <source src="Screen_Recording_20231210_00132_YouTube.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 <div class="countdown-container">
   <div id="countdown" class="countdown">
