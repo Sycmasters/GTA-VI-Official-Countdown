@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -38,6 +38,16 @@
     font-family: 'Acherus Grotesque', sans-serif;
     margin: 0;
     padding: 0;
+    animation: glowing 2s infinite;
+  }
+
+  @keyframes glowing {
+    0%, 100% {
+      text-shadow: 0 0 4px #ff7f50, 0 0 10px #ff7f50, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500;
+    }
+    50% {
+      text-shadow: 0 0 10px #ff7f50, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500, 0 0 50px #ff4500;
+    }
   }
 
   /* Style for the GIF */
