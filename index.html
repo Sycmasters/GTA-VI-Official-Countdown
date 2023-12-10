@@ -27,11 +27,8 @@
     .countdown-container {
       text-align: center;
       color: #fff;
-      font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is */
-      background: none; /* Removed semi-transparent background */
-      padding: 10px;
-      margin-bottom: 20px; /* Add some space at the bottom */
+      font-size: 3vw;
+      margin-bottom: 20px;
     }
 
     .countdown {
@@ -40,36 +37,31 @@
       padding: 0;
     }
 
+    /* Adjust GIF container position */
     .gif-container {
-      position: absolute; /* Absolute positioning */
-      top: 92vh; /* Place the GIF at 92vh from the top */
-      left: 50%; /* Center the GIF horizontally */
-      transform: translate(-50%, -50%); /* Adjust for exact centering */
-      max-width: 600px; /* Max width to make the GIF responsive */
-      height: auto; /* Maintain aspect ratio */
-      cursor: pointer; /* Change cursor on hover */
-    }
-
-    /* Make the entire gif container clickable */
-    .gif-link {
       position: absolute;
-      top: 92vh;
+      top: 80vh; /* Adjust this value to position the GIF */
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px; /* Same width as the GIF for proper covering */
-      height: auto; /* Same height as the GIF */
-      cursor: pointer; /* Change cursor on hover */
+      max-width: 600px;
+      height: auto;
+    }
+
+    .gif-link {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
 
   <!-- GIF container as a clickable link -->
-  <a href="trailer.html" class="gif-link">
-    <div class="gif-container">
-      <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
-    </div>
-  </a>
+  <div class="gif-container">
+    <a href="trailer.html" class="gif-link">
+      <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo" style="width: 100%; height: auto;">
+    </a>
+  </div>
 
   <!-- Countdown container -->
   <div class="countdown-container">
@@ -98,7 +90,8 @@
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
       // Output the result in the element with id="countdown"
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
 
       // If the countdown is finished, write some text
       if (timeRemaining < 0) {
