@@ -51,35 +51,87 @@
     }
 
     /* Button styles */
+    .button-container {
+      position: absolute; /* Absolute positioning */
+      top: 20px; /* Distance from the top */
+      right: 20px; /* Distance from the right */
+      display: flex; /* Arrange buttons horizontally */
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: flex-end; /* Align buttons to the end (right) */
+    }
+
     .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 50%;
       background-color: #ff69b4; /* Vibrant pink for the button */
       color: white;
-      text-transform: uppercase;
+      padding: 10px;
+      border-radius: 50%; /* Fully round buttons */
+      border: none;
       cursor: pointer;
-      font-family: 'Acherus Grotesque', Arial, sans-serif;
-      text-decoration: none; /* Remove underline from links */
-      transition: background-color 0.3s;
+      opacity: 0; /* Buttons are invisible by default */
+      transition: background-color 0.3s, opacity 0.3s; /* Smooth transition for hover effect */
+      margin-bottom: 10px; /* Space between buttons */
     }
 
     .button:hover {
       background-color: #ff1493; /* Darker shade of pink for hover effect */
-    }
-
-    /* Container for buttons */
-    .button-container {
-      position: absolute;
-      top: calc(85vh + 50px); /* 50px below the space where the timer used to be */
-      display: flex;
-      justify-content: center;
+      opacity: 1; /* Button visible on hover */
     }
   </style>
 </head>
 <body>
+
+  <!-- GIF container -->
+  <div class="gif-container">
+    <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
+  </div>
+
+  <!-- Countdown container -->
+  <div class="countdown-container">
+    <div id="countdown" class="countdown">
+      00d 00h 00m 00s
+    </div>
+  </div>
+
+  <!-- Button container -->
+  <div class="button-container">
+    <a href="trailer.html" class="button">Trailer</a>
+    <a href="news.html" class="button">News</a>
+    <a href="gallery.html" class="button">Gallery</a>
+  </div>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
+
+    // Update the countdown every 1 second
+    var countdownFunction = setInterval(function() {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the time remaining until the countdown date
+      var timeRemaining = countDownDate - now;
+
+      // Time calculations for days, hours, minutes, and seconds
+      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Output the result in the element with id="countdown"
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the countdown is finished, write some text
+      if (timeRemaining < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
 
   <!-- GIF container -->
   <div class="gif-container">
