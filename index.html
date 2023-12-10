@@ -38,21 +38,29 @@
     font-family: 'Acherus Grotesque', sans-serif;
     margin: 0;
     padding: 0;
-    animation: glowing 2s infinite;
+    animation: glowing 3s infinite;
   }
 
   @keyframes glowing {
     0%, 100% {
-      text-shadow: 0 0 4px transparent, 0 0 10px transparent, 0 0 20px transparent, 0 0 30px transparent, 0 0 40px transparent, 0 0 50px transparent, 0 0 60px transparent, 0 0 70px transparent;
-    }
-    25% {
-      text-shadow: 0 0 4px #A58475, 0 0 10px #A58475, 0 0 20px #A58475, 0 0 30px #A58475, 0 0 40px #A58475, 0 0 50px #A58475, 0 0 60px #A58475, 0 0 70px #A58475;
+      text-shadow: 
+        0 -1px 7px #A58475, 
+        0 -2px 14px #A58475, 
+        0 -3px 21px transparent, 
+        0 -4px 28px transparent,
+        0 -5px 35px transparent, 
+        0 -6px 42px transparent, 
+        0 -7px 49px transparent;
     }
     50% {
-      text-shadow: 0 0 4px #B659AF, 0 0 10px #B659AF, 0 0 20px #B659AF, 0 0 30px #B659AF, 0 0 40px #B659AF, 0 0 50px #B659AF, 0 0 60px #B659AF, 0 0 70px #B659AF;
-    }
-    75% {
-      text-shadow: 0 0 4px #A58475, 0 0 10px #A58475, 0 0 20px #A58475, 0 0 30px #A58475, 0 0 40px #A58475, 0 0 50px #A58475, 0 0 60px #A58475, 0 0 70px #A58475;
+      text-shadow: 
+        0 -1px 7px #B659AF, 
+        0 -2px 14px #B659AF, 
+        0 -3px 21px #B659AF, 
+        0 -4px 28px #A58475,
+        0 -5px 35px #A58475, 
+        0 -6px 42px #A58475, 
+        0 -7px 49px #A58475;
     }
   }
 
