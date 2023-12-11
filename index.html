@@ -27,9 +27,8 @@
     .countdown-container {
       text-align: center;
       color: #fff;
-      font-size: 50px; /* Fixed font size */
-      position: relative; /* Use relative positioning */
-      top: -100px; /* Adjust the countdown position */
+      font-size: 3vw; /* Font size relative to the width of the viewport */
+      margin-top: -70vh; /* Adjust the countdown position for mobile screens */
       background: none; /* Removed semi-transparent background */
       padding: 10px;
       margin-bottom: 20px; /* Add some space at the bottom */
@@ -44,13 +43,19 @@
     /* Style for the GIF */
     .gif-container {
       position: absolute; /* Absolute positioning */
-      top: 50%; /* Place the GIF at the center from the top */
+      top: 92vh; /* Place the GIF at 92vh from the top on PC */
       left: 50%; /* Center the GIF horizontally */
       transform: translate(-50%, -50%); /* Adjust for exact centering */
       max-width: 600px; /* Max width to make the GIF responsive */
       height: auto; /* Maintain aspect ratio */
     }
 
+    /* Media query for mobile */
+    @media (max-width: 768px) {
+      .countdown-container {
+        font-size: 5vw; /* Increase font size for mobile screens */
+      }
+    }
   </style>
 </head>
 <body>
