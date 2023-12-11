@@ -18,56 +18,55 @@
       font-family: 'Acherus Grotesque', Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Changed from center to flex-start */
       align-items: center;
       background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
-      background-size: cover; /* Ensures the background covers the entire viewport */
+      background-size: cover;
     }
 
     .countdown-container {
       text-align: center;
       color: #fff;
-      font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is */
-      background: none; /* Removed semi-transparent background */
+      font-size: clamp(2rem, 3vw, 5rem); /* Using clamp for responsive font size */
+      margin-top: 10vh; /* Adjusted margin-top */
       padding: 10px;
-      margin-bottom: 20px; /* Add some space at the bottom */
     }
 
     .countdown {
       font-family: 'Acherus Grotesque', sans-serif;
-      margin: 0;
-      padding: 0;
     }
 
-    /* Style for the GIF */
     .gif-container {
-      position: absolute; /* Absolute positioning */
-      top: 92vh; /* Place the GIF at 92vh from the top */
-      left: 50%; /* Center the GIF horizontally */
-      transform: translate(-50%, -50%); /* Adjust for exact centering */
-      max-width: 600px; /* Max width to make the GIF responsive */
-      height: auto; /* Maintain aspect ratio */
+      position: absolute;
+      top: 50vh; /* Adjusted top positioning */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 80%; /* Adjusted max width for better responsiveness */
+      height: auto;
     }
+
+    @media (max-width: 600px) {
+      .gif-container {
+        top: 60vh; /* Adjusted for mobile */
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- GIF container as a clickable link -->
-  <div class="gif-container">
-    <a href="trailer.html">
-      <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo" style="width: 100%; height: auto;">
-    </a>
-  </div>
-
-  <!-- Countdown container -->
   <div class="countdown-container">
     <div id="countdown" class="countdown">
       00d 00h 00m 00s
     </div>
   </div>
 
-  <!-- Countdown Timer Script -->
+  <div class="gif-container">
+    <a href="trailer.html">
+      <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo">
+    </a>
+  </div>
+
   <script>
     var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
 
@@ -79,7 +78,8 @@
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
 
       if (timeRemaining < 0) {
         clearInterval(countdownFunction);
