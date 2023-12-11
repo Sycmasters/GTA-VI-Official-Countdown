@@ -53,17 +53,21 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .countdown-container {
-        font-size: 5vw; /* Larger font size for small screens */
+        font-size: 6vw; /* Larger font size for small screens */
         margin-top: 0; /* Reset top margin for mobile layout */
+        position: absolute;
+        top: 10%; /* Place countdown at the top of the screen */
       }
 
       .gif-container {
-        top: 50%; /* Adjust GIF to be just below the text */
-        max-width: 80%; /* Make the GIF smaller on small screens */
+        top: 50%; /* Center GIF vertically on small screens */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 50%; /* Adjust GIF size for small screens */
       }
 
       body, html {
-        background-size: auto 100%; /* Adjust background size for small screens */
+        background-size: cover; /* Adjust background to cover on mobile */
       }
     }
   </style>
