@@ -21,15 +21,17 @@
       justify-content: center;
       align-items: center;
       background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
-      background-size: cover;
+      background-size: cover; /* Ensures the background covers the entire viewport */
     }
 
     .countdown-container {
       text-align: center;
       color: #fff;
-      font-size: 5vw; /* Responsive font size */
+      font-size: 3vw; /* Font size relative to the width of the viewport */
+      margin-top: -80vh; /* Keep the countdown where it is */
+      background: none; /* Removed semi-transparent background */
       padding: 10px;
-      margin-bottom: 5vh; /* Space between countdown and GIF */
+      margin-bottom: 20px; /* Add some space at the bottom */
     }
 
     .countdown {
@@ -38,40 +40,37 @@
       padding: 0;
     }
 
+    /* Style for the GIF */
     .gif-container {
-      position: absolute;
-      top: auto; /* Adjusted positioning */
-      bottom: 10vh; /* Distance from bottom */
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 80%; /* Max width relative to viewport */
-      height: auto;
-    }
-
-    /* Media Queries for different screen sizes */
-    @media (max-width: 600px) {
-      .countdown-container {
-        font-size: 7vw; /* Larger font size on smaller screens */
-      }
+      position: absolute; /* Absolute positioning */
+      top: 92vh; /* Place the GIF at 92vh from the top */
+      left: 50%; /* Center the GIF horizontally */
+      transform: translate(-50%, -50%); /* Adjust for exact centering */
+      max-width: 600px; /* Max width to make the GIF responsive */
+      height: auto; /* Maintain aspect ratio */
     }
   </style>
 </head>
 <body>
 
+  <!-- GIF container as a clickable link -->
   <div class="gif-container">
     <a href="trailer.html">
       <img src="https://ksturff.github.io/GTA-VI-Official-Countdown/ezgif-4-484594a530.gif" alt="Animated Logo" style="width: 100%; height: auto;">
     </a>
   </div>
 
+  <!-- Countdown container -->
   <div class="countdown-container">
     <div id="countdown" class="countdown">
       00d 00h 00m 00s
     </div>
   </div>
 
+  <!-- Countdown Timer Script -->
   <script>
     var countDownDate = new Date("Sep 23, 2025 00:00:00 EST").getTime();
+
     var countdownFunction = setInterval(function() {
       var now = new Date().getTime();
       var timeRemaining = countDownDate - now;
@@ -79,7 +78,9 @@
       var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
       document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
       if (timeRemaining < 0) {
         clearInterval(countdownFunction);
         document.getElementById("countdown").innerHTML = "EXPIRED";
