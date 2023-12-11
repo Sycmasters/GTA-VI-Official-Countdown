@@ -27,11 +27,11 @@
     .countdown-container {
       text-align: center;
       color: #fff;
-      font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is */
+      font-size: clamp(2rem, 4vw, 3rem); /* Adjust font size to be responsive */
+      margin-top: 0; /* Adjusted to maintain position across different devices */
       background: none; /* Removed semi-transparent background */
       padding: 10px;
-      margin-bottom: 20px; /* Add some space at the bottom */
+      margin-bottom: 2rem; /* Consistent space at the bottom */
     }
 
     .countdown {
@@ -42,12 +42,23 @@
 
     /* Style for the GIF */
     .gif-container {
-      position: absolute; /* Absolute positioning */
-      top: 92vh; /* Place the GIF at 92vh from the top */
-      left: 50%; /* Center the GIF horizontally */
-      transform: translate(-50%, -50%); /* Adjust for exact centering */
       max-width: 600px; /* Max width to make the GIF responsive */
       height: auto; /* Maintain aspect ratio */
+      position: relative; /* Changed to relative for better responsiveness */
+      margin: 2rem auto 0; /* Auto margins for horizontal centering, 2rem top margin */
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .countdown-container {
+        font-size: clamp(2rem, 5vw, 2.5rem); /* Larger font size for small screens */
+        margin-bottom: 1rem; /* Smaller bottom margin on small screens */
+      }
+
+      .gif-container {
+        max-width: 80%; /* Smaller max width for the GIF on small screens */
+        margin-top: 1rem; /* Smaller top margin for the GIF */
+      }
     }
   </style>
 </head>
