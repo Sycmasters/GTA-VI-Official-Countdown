@@ -43,7 +43,7 @@
     /* Style for the GIF */
     .gif-container {
       position: absolute; /* Absolute positioning */
-      top: 85vh; /* Place the GIF below the countdown */
+      top: 92vh; /* Place the GIF at 92vh from the top */
       left: 50%; /* Center the GIF horizontally */
       transform: translate(-50%, -50%); /* Adjust for exact centering */
       max-width: 600px; /* Max width to make the GIF responsive */
@@ -53,21 +53,16 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .countdown-container {
-        font-size: 6vw; /* Larger font size for small screens */
-        margin-top: 0; /* Reset top margin for mobile layout */
-        position: absolute;
-        top: 10%; /* Place countdown at the top of the screen */
+        font-size: 5vw; /* Larger font size for better visibility on small screens */
+        margin-top: 0; /* Adjust countdown container position on mobile */
       }
 
       .gif-container {
-        top: 50%; /* Center GIF vertically on small screens */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 50%; /* Adjust GIF size for small screens */
-      }
-
-      body, html {
-        background-size: cover; /* Adjust background to cover on mobile */
+        top: auto; /* Remove the top property */
+        bottom: 10%; /* Place the GIF at the bottom of the viewport */
+        left: 50%; /* Center the GIF horizontally */
+        transform: translateX(-50%); /* Only shift horizontally */
+        max-width: 80%; /* Adjust width of GIF for small screens */
       }
     }
   </style>
