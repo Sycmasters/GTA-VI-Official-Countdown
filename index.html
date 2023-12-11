@@ -28,7 +28,7 @@
       text-align: center;
       color: #fff;
       font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is on PC */
+      margin-top: -70vh; /* Adjust the countdown position for mobile screens */
       background: none; /* Removed semi-transparent background */
       padding: 10px;
       margin-bottom: 20px; /* Add some space at the bottom */
@@ -53,11 +53,7 @@
     /* Media query for mobile */
     @media (max-width: 768px) {
       .countdown-container {
-        margin-top: -50vh; /* Adjust the countdown position for mobile screens */
-      }
-      
-      .gif-container {
-        top: 80vh; /* Adjust the GIF position for mobile screens */
+        font-size: 5vw; /* Increase font size for mobile screens */
       }
     }
   </style>
