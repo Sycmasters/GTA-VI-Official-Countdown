@@ -21,14 +21,14 @@
       justify-content: center;
       align-items: center;
       background: url('https://ksturff.github.io/GTA-VI-Official-Countdown/GTA-6-Logo-4K-Wallpaper.png') no-repeat center center fixed;
-      background-size: cover;
+      background-size: cover; /* Ensures the background covers the entire viewport */
     }
 
     .countdown-container {
       text-align: center;
       color: #fff;
       font-size: 3vw; /* Font size relative to the width of the viewport */
-      margin-top: -80vh; /* Keep the countdown where it is */
+      margin-top: -80vh; /* Keep the countdown where it is on PC */
       background: none; /* Removed semi-transparent background */
       padding: 10px;
       margin-bottom: 20px; /* Add some space at the bottom */
@@ -43,26 +43,21 @@
     /* Style for the GIF */
     .gif-container {
       position: absolute; /* Absolute positioning */
-      top: 92vh; /* Place the GIF at 92vh from the top */
+      top: 92vh; /* Place the GIF at 92vh from the top on PC */
       left: 50%; /* Center the GIF horizontally */
       transform: translate(-50%, -50%); /* Adjust for exact centering */
       max-width: 600px; /* Max width to make the GIF responsive */
       height: auto; /* Maintain aspect ratio */
     }
 
-    /* Responsive adjustments */
+    /* Media query for mobile */
     @media (max-width: 768px) {
       .countdown-container {
-        font-size: 5vw; /* Larger font size for better visibility on small screens */
-        margin-top: 0; /* Adjust countdown container position on mobile */
+        margin-top: -50vh; /* Adjust the countdown position for mobile screens */
       }
-
+      
       .gif-container {
-        top: auto; /* Remove the top property */
-        bottom: 10%; /* Place the GIF at the bottom of the viewport */
-        left: 50%; /* Center the GIF horizontally */
-        transform: translateX(-50%); /* Only shift horizontally */
-        max-width: 80%; /* Adjust width of GIF for small screens */
+        top: 80vh; /* Adjust the GIF position for mobile screens */
       }
     }
   </style>
